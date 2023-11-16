@@ -1,4 +1,6 @@
+import Back from '@/components/back';
 import { db } from '@/db';
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
 export default function SnippetCreate() {
@@ -16,7 +18,10 @@ export default function SnippetCreate() {
     redirect('/');
   };
   return (
-    <div>
+    <div className='px-10 w-full lg:px-0 lg:w-1/2 mx-auto pt-32'>
+      <div className='flex justify-start'>
+        <Back route='/' />
+      </div>
       <form className='' action={createSnippet}>
         <h3 className='font-bold m-3'>Create a snippet</h3>
         <div className='flex flex-col gap-4'>
