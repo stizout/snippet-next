@@ -22,3 +22,12 @@ export const createSnippet = async (formData: FormData) => {
   revalidatePath('/');
   redirect('/');
 };
+
+export const editSnippet = async (id: number, code: string) => {
+  await db.snippet.update({
+    where: { id },
+    data: { code },
+  });
+  revalidatePath('/');
+  redirect(`/snippets/${id}`);
+};
